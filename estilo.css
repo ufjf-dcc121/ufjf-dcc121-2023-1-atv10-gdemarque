@@ -5,6 +5,9 @@ main{
     display: flex;
     
 }
+header{
+    background-color: blue;
+}
 header h1{
     margin-bottom: 0;
 }
