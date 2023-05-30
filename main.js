@@ -1,4 +1,4 @@
-import  store  from "./store.js";
+import  {adicionar, itens as get_itens}  from "./store.js";
 const form = document.forms.entrada;
 form.addEventListener('submit', envia);
 
@@ -11,7 +11,7 @@ function envia(evento)
     evento.preventDefault();
     console.log('Formulário enviado!');
     const n = form.valor.value;
-    store.estado.push(n);
+    adicionar(n);
     form.valor.value = "";
     form.valor.focus();
     atualiza();
@@ -21,11 +21,11 @@ function atualiza()
 {
     const ol = document.querySelector('ol');
     ol.innerHTML = "";
-    for(let i = 0; i<store.estado.length; i++)
+    for(let i = 0; i<get_itens().length; i++)
     {
         const li= document.createElement('li');
-        li.textContent = store.estado[i];
+        li.textContent = get_itens()[i];
         ol.appendChild(li);
     }
-    
+   
 }
